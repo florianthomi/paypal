@@ -584,6 +584,7 @@ class MethodEC extends AbstractMethodPaypal
                     $order_total_with_reduction -= $discount['value_real'];
                 }
 
+                $discount['tax'] = -1 * $this->formatPrice($discount['value_real'] - $discount['value_tax_exc']);
                 $discount['value_real'] = -1 * $this->formatPrice($discount['value_real']);
                 $itemDetails = new PaymentDetailsItemType();
                 $itemDetails->Name = $discount['name'];
